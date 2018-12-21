@@ -1,5 +1,5 @@
 [![Abcdspec-compliant](https://img.shields.io/badge/ABCD_Spec-v1.1-green.svg)](https://github.com/soichih/abcd-spec)
-[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.137-blue.svg)](https://doi.org/10.25663/bl.app.137)
+[![Run on Brainlife.io](https://img.shields.io/badge/Brainlife-bl.app.137-blue.svg)](https://doi.org/10.25663/brainlife.app.137)
 
 # app-fslDTIFIT
 This app will fit the diffusion tensor model (DTI) to a diffusion MRI image using FSL's dtifit commmand. 
@@ -20,7 +20,7 @@ This app will fit the diffusion tensor model (DTI) to a diffusion MRI image usin
 
 ### On Brainlife.io
 
-You can submit this App online at [https://doi.org/10.25663/bl.app.137](https://doi.org/10.25663/bl.app.137) via the "Execute" tab.
+You can submit this App online at [https://doi.org/10.25663/brainlife.app.137](https://doi.org/10.25663/bl.app.137) via the "Execute" tab.
 
 ### Running Locally (on your machine)
 

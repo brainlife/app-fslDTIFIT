@@ -1,0 +1,18 @@
+#!/bin/bash
+#PBS -l walltime=0:30:00
+#PBS -N fslDTIFIT
+
+module load singularity 2> /dev/null
+
+set -e
+
+echo "dti fit"
+time singularity exec -e docker://brainlife/fsl:5.0.9 ./fslDTIFIT.sh
+
+if [ -f fa.nii.gz ];
+then
+	echo 0 > finished
+else
+	echo "output missing"
+	echo 1 > finished
+fi

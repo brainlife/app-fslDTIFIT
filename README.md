@@ -6,7 +6,6 @@ This app will fit the diffusion tensor model (DTI) to a diffusion MRI image usin
 
 ### Authors
 - Brad Caron (bacaron@iu.edu)
-- Ilaria Sani (isani01@rockefeller.edu)
 
 ### Contributors
 - Soichi Hayashi (hayashi@iu.edu)

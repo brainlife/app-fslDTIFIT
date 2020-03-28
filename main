@@ -4,10 +4,17 @@
 
 module load singularity 2> /dev/null
 
-set -e
+#set -e
 
+# extract shell if necessary
+if [[ ${multishell} == false ]]; then
+	echo "extract shell for tensor fit"
+	time singularity exec -e docker://brainlife/mrtrix3:3.0_RC3 ./extractShells.sh
+fi
+
+# fit tensor
 echo "dti fit"
-time singularity exec -e docker://brainlife/fsl:5.0.9 ./fslDTIFIT.sh
+time singularity exec -e docker://brainlife/fsl:5.0.11 ./fslDTIFIT.sh
 
 if [ -f fa.nii.gz ];
 then

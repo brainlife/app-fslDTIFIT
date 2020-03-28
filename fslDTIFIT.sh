@@ -37,8 +37,8 @@ if [ $mask == "null" ]; then
 
     ## create b0 image
 	select_dwi_vols \
-		dwi${shell}.nii.gz \
-		dwi${shell}.bvals \
+		dwi.nii.gz \
+		dwi.bvals \
 		nodif.nii.gz \
 		0 \
 		-m;

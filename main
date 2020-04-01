@@ -8,9 +8,11 @@ module load singularity 2> /dev/null
 
 # extract shell if necessary
 multishell=`jq -r '.multishell' config.json`
-if [[ ${multishell} == false ]]; then
-	echo "extract shell for tensor fit"
-	time singularity exec -e docker://brainlife/mrtrix3:3.0_RC3 ./extractShell.sh
+if [ ! -f dwi.nii.gz ]; then
+	if [[ ${multishell} == false ]]; then
+		echo "extract shell for tensor fit"
+		time singularity exec -e docker://brainlife/mrtrix3:3.0_RC3 ./extractShell.sh
+	fi
 fi
 
 # fit tensor

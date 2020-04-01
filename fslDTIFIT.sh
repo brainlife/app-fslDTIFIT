@@ -32,7 +32,7 @@ else
 fi
 
 # generate brain mask if needed
-if [ $mask == "null" ]; then
+if [ $mask == "null" ] && if [ ! mask.nii.gz ]; then
     echo "creating brainmask"
 
     ## create b0 image

@@ -33,22 +33,27 @@ fi
 
 # generate brain mask if needed
 if [ $mask == "null" ] && [ ! -f mask.nii.gz ]; then
-    echo "creating brainmask"
+	echo "creating brainmask"
 
-    ## create b0 image
-	select_dwi_vols \
-		dwi.nii.gz \
-		dwi.bvals \
-		nodif.nii.gz \
-		0 \
-		-m;
+	if [ ! -f nodif.nii.gz ]; then
+		## create b0 image
+		select_dwi_vols \
+			dwi.nii.gz \
+			dwi.bvals \
+			nodif.nii.gz \
+			0 \
+			-m;
+	fi
 
-	## creates brainmask for DTIFIT
-	bet nodif.nii.gz \
-		nodif_mean_brain \
-		-f 0.2 \
-		-g 0 \
-		-m;
+	if [ ! -f nodif_mean_brain_mask.nii.gz ]; then
+		## creates brainmask for DTIFIT
+		bet nodif.nii.gz \
+			nodif_mean_brain \
+			-f 0.2 \
+			-g 0 \
+			-m;
+	fi
+	
 	mv nodif_mean_brain_mask.nii.gz mask.nii.gz
 else
 	cp ${mask} mask.nii.gz;

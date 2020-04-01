@@ -44,7 +44,7 @@ if [ $mask == "null" ]; then
 		-m;
 
 	## creates brainmask for DTIFIT
-	bet nodif_mean.nii.gz \
+	bet nodif.nii.gz \
 		nodif_mean_brain \
 		-f 0.2 \
 		-g 0 \

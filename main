@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l walltime=0:30:00
+#PBS -l walltime=0:30:00,vmem=32gb
 #PBS -N fslDTIFIT
 
 module load singularity 2> /dev/null

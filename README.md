@@ -42,16 +42,16 @@ You can submit this App online at [https://doi.org/10.25663/brainlife.app.292](h
 ```json 
 {
    "dwi":    "testdata/dwi/dwi.nii.gz",
-    "bvals":    "testdata/dwi/dwi.bvals",
-    "bvecs":    "tesdata/dwi/dwi.bvecs",
-    "mask":    "testdata/mask/mask.nii.gz",
-    "kurtosis":    true,
-    "kurtdir":    true,
-    "shell":    1000,
-    "sse":    true,
-    "wls":    true,
-    "gradnonlin":   false,
-    "multishell":    true
+   "bvals":    "testdata/dwi/dwi.bvals",
+   "bvecs":    "tesdata/dwi/dwi.bvecs",
+   "mask":    "testdata/mask/mask.nii.gz",
+   "kurtosis":    true,
+   "kurtdir":    true,
+   "shell":    1000,
+   "sse":    true,
+   "wls":    true,
+   "gradnonlin":   false,
+   "multishell":    true
 } 
 ``` 
 

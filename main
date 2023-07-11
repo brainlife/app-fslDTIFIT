@@ -4,7 +4,7 @@
 #PBS -l vmem=23gb
 #PBS -l walltime=01:13:00
 
-module load singularity 2> /dev/null
+#module load singularity 2> /dev/null
 
 #set -e
 

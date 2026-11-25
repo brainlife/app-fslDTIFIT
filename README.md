@@ -3,6 +3,40 @@
 
 # FSL DTIFIT 
 
+<!-- brainlife-app:begin (generated from the App manifest; edit the manifest, not this block) -->
+
+**Fits the diffusion tensor to a DWI with FSL dtifit, optionally on a single extracted shell and with kurtosis, WLS or SSE options, and outputs FA, MD, AD and RD maps.**
+
+Unless multishell is true, extracts the b=0 and chosen shell with MRtrix3 dwiextract; computes a brain mask with FSL bet on the mean b0 if none is given; runs dtifit with the selected flags; and writes fa, md, ad (L1) and rd ((L2+L3)/2) maps, plus kurtosis for multi-shell kurtosis fits. Use it to obtain standard DTI maps from preprocessed DWI. Needs a preprocessed DWI containing the requested shell.
+
+Run it on brainlife.io: [https://doi.org/10.25663/brainlife.app.292](https://doi.org/10.25663/brainlife.app.292)
+
+| Input | Datatype | Required | Description |
+|---|---|---|---|
+| `dwi` | `neuro/dwi` | yes | The path to the DWI datatype |
+| `mask` | `neuro/mask` (brain, dwi) | no | The brainmask of the DWI datatype (optional). If not inputted, will be fit using FSL BET |
+
+| Output | Datatype | Description |
+|---|---|---|
+| `tensor` | `neuro/tensor` | Tensor maps fa.nii.gz, md.nii.gz, ad.nii.gz and rd.nii.gz (and kurtosis.nii.gz for multi-shell kurtosis fits). |
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `kurtosis` | boolean | `false` | If true, will fit tensor using the -kurt flag |
+| `kurtdir` | boolean | `false` | If true, will fit tensor using the -kurtdir flag |
+| `shell` | string | `1000` | The gradient (i.e. shell) to use to fit the DTI model to |
+| `wls` | boolean | `false` | If true, will fit tensor using the -wls flag |
+| `sse` | boolean | `false` | If true, will fit tensor using the -sse flag |
+| `gradnonlin` | boolean | `false` | If true, will fit tensor using the -gradnonlin flag |
+| `multishell` | boolean | `false` | If true, will fit multi-shell tensor |
+
+Runtime: container `brainlife/mrtrix3:3.0.3`; 12 CPUs.
+
+Please cite:
+- FSL DTIFIT: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FDT/UserGuide#DTIFIT
+
+<!-- brainlife-app:end -->
+
 This app will fit the diffusion tensor model (DTI) to a diffusion MRI image using FSL’s dtifit commmand. This app takes in a DWI datatype and can take in a brainmask mask datatype. If not included, will generate it's own using FSL's BET function. Can also set each flag in the dtifit command, including kurtosis fitting, fitting using weighted least-squares, outputting information about sum of squares error, gradient nonlinearities, and fitting on multishell data. Will output the tensor datatype and a brainmask mask datatype. 
 
 ### Authors 
